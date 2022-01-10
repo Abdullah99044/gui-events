@@ -57,6 +57,22 @@ def crusorOut_func(event):
         label.configure(text=n)
         window.configure(bg="Red")
 
+def click_Up(event):
+    global number
+    print(str(event))
+    if number > 0:
+        number = number + 3
+        n = str(number)
+    elif number < 0:
+        number = number - 3
+        n = str(number)
+    window.update()
+    label.configure(text=n)
+        
+
+ 
+
+
 
 
      
@@ -77,6 +93,8 @@ label.pack(
 
 label.bind("<Enter>" , crusorIn_func )
 label.bind("<Leave>" , crusorOut_func)
+label.bind("<Double-Button>",  click_Up  )
+ 
 
 btn2 = tkinter.Button(window , text="Down" , font=("Arial" , 15) , width = 20 , bg="white" , fg="black" , command=lambda : [down_func() , lable_func()]  )
 btn2.pack(
